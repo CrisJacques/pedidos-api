@@ -1,10 +1,13 @@
 package com.example.produtosapi.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.UuidGenerator;
 
 @Getter
 @Setter
@@ -14,6 +17,8 @@ import lombok.ToString;
 public class Produto {
 
     @Id
+    @GeneratedValue
+    @UuidGenerator
     // @Column(name = "codigo") - só é necessário se o nome do atributo não fosse o mesmo da coluna no banco de dados
     private String id;
 
