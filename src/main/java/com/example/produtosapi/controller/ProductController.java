@@ -35,6 +35,11 @@ public class ProductController {
         return ResponseEntity.ok(productService.findById(id));
     }
 
+    @GetMapping(params = "name")
+    public ResponseEntity<List<Product>> findByName(@RequestParam String name){
+        return ResponseEntity.ok(productService.findByName(name));
+    }
+
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable String id){
         productService.deleteById(id);
