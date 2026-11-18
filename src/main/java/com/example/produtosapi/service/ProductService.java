@@ -31,4 +31,18 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
+    public Product update(String id, Product productData){
+        return productRepository.save(updateData(id, productData));
+    }
+
+    private Product updateData(String id, Product productData){
+        Product product = findById(id);
+
+        product.setName(productData.getName());
+        product.setPrice(productData.getPrice());
+        product.setDescription(productData.getDescription());
+
+        return product;
+    }
+
 }

@@ -20,6 +20,11 @@ public class ProductController {
         return ResponseEntity.ok(productService.save(product));
     }
 
+    @PatchMapping(value = "/{id}")
+    public ResponseEntity<Product> update(@PathVariable String id, @RequestBody Product productData){
+        return ResponseEntity.ok(productService.update(id, productData));
+    }
+
     @GetMapping
     public ResponseEntity<List<Product>> findAll(){
         return ResponseEntity.ok(productService.findAll());
